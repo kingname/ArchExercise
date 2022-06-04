@@ -1,0 +1,15 @@
+<div class="news_list">
+    {% for news in news_list %}
+    <div class="news">
+        <h3>
+            <a href="{{ news.url }}">{{ news.title }}</a>
+        </h3>
+        <div class="author">{{ news.author }}</div>
+        <div class="publish_ts">{{ news.publish_ts }}</div>
+        <div class="article">
+            <p> {{ news.sample }} </p>
+        </div>
+    </div>
+    <br />
+    {% endfor %}
+</div>
