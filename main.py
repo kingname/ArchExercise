@@ -20,7 +20,7 @@ def index():
 
 
 @app.get('/html/news')
-def news(page: int = 0, size: int = 10, keyword: str = ''):
+def news(page: int = 0, size: int = 10, keyword: str = '', delay: bool = False):
     """
     获取自动生成的新闻HTML页面
 
@@ -29,8 +29,10 @@ def news(page: int = 0, size: int = 10, keyword: str = ''):
     :param size: 任意小于50的数字
 
     :param keyword: 关键字
+
+    :param delay: 新闻发布时间是否添加随机延迟
     """
-    html = html_genrator.generate(page, size, keyword)
+    html = html_genrator.generate(page, size, keyword, delay)
     return HTMLResponse(html)
 
 
@@ -48,7 +50,7 @@ def profile(page: int = 0, size: int = 10, data_type: str = 'outer_json', keywor
     :param keyword: 关键字
     """
     if data_type == 'html':
-        data = html_genrator.generate_content(size, keyword)
+        data = html_genrator.generate_content(page, size, keyword)
     else:
         data = json_generator.generate(size)
         if data_type == 'outer_json':
