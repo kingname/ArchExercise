@@ -1,6 +1,6 @@
 from python:3.9
 
-run pip install fastapi faker jinja2 jinja2
+run pip install fastapi faker jinja2 uvicorn
 copy . /ArchExercise
 workdir /ArchExercise
 
