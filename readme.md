@@ -7,4 +7,4 @@
 
 ## 课程目录
 
-![](https://github.com/kingname/ArchExercise/blob/main/screenshots/toc.svg)
+![](https://github.com/kingname/ArchExercise/blob/main/screenshots/toc.png)
