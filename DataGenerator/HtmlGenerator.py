@@ -27,7 +27,6 @@ class HtmlGenerator:
             news_list=self.generate_news_list(size),
         )
         return html
-        return ''
 
     def generate_content(self, size):
         html = self.content_template.render(
