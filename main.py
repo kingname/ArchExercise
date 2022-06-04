@@ -20,20 +20,22 @@ def index():
 
 
 @app.get('/html/news')
-def news(page: int = 0, size: int = 10):
+def news(page: int = 0, size: int = 10, keyword: str = ''):
     """
     获取自动生成的新闻HTML页面
 
     :param page: 任意数字
 
     :param size: 任意小于50的数字
+
+    :param keyword: 关键字
     """
-    html = html_genrator.generate_content(size)
+    html = html_genrator.generate(page, size, keyword)
     return HTMLResponse(html)
 
 
 @app.get('/api')
-def profile(page: int = 0, size: int = 10, data_type: str = 'outer_json'):
+def profile(page: int = 0, size: int = 10, data_type: str = 'outer_json', keyword: str = ''):
     """
     模拟API Ajax请求的返回
 
@@ -42,9 +44,11 @@ def profile(page: int = 0, size: int = 10, data_type: str = 'outer_json'):
     :param size: 任意数字
 
     :param data_type: inner_json/outer_json/html
+
+    :param keyword: 关键字
     """
     if data_type == 'html':
-        data = html_genrator.generate_content(size)
+        data = html_genrator.generate_content(size, keyword)
     else:
         data = json_generator.generate(size)
         if data_type == 'outer_json':
